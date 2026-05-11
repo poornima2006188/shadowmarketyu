@@ -1,0 +1,10 @@
+[*] DataFeed startup initiated for BTC.
+[*] Connected to Pacifica WS: wss://ws.pacifica.fi/ws
+[*] Subscribed to prices and trades for BTC
+
+--- Summary ---
+Final Latest Price: 66534.5
+Total Cached Trades: 0
+[*] Stopping DataFeed...
+[!] WebSocket connection closed by the server.
+[*] DataFeed securely stopped.

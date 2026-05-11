@@ -1,0 +1,206 @@
+/* Premium Shadow Market X Design System */
+:root {
+  --bg-color: #030712;
+  --panel-bg: rgba(17, 24, 39, 0.7);
+  --accent-color: #10b981;
+  --threat-red: #ef4444;
+  --threat-amber: #f59e0b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Layout */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.05), transparent 50%),
+              radial-gradient(circle at 0% 100%, rgba(239, 68, 68, 0.03), transparent 40%);
+}
+
+.main-content {
+  margin-left: 260px;
+  flex: 1;
+  padding: 2rem 4rem;
+  max-width: 1400px;
+}
+
+.global-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.operator-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.operator-label {
+    font-size: 0.75rem; 
+    text-transform: uppercase; 
+    color: var(--text-secondary);
+}
+
+.operator-details {
+    display: flex; 
+    gap: 1rem; 
+    align-items: center;
+}
+
+.operator-id {
+    font-size: 0.9rem; 
+    font-weight: 600;
+}
+
+.signout-button {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    font-size: 0.65rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.threat-display {
+    padding: 0.5rem 1rem; 
+    display: flex; 
+    align-items: center; 
+    gap: 0.75rem;
+}
+
+/* Auth Screens */
+.login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+}
+
+.login-card {
+  max-width: 400px;
+  text-align: center;
+  padding: 3rem;
+}
+
+.login-title {
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+}
+
+.login-title .accent {
+  color: var(--accent-color);
+}
+
+.login-subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.login-button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  font-size: 1rem;
+}
+
+.login-button:hover {
+  opacity: 0.9;
+}
+
+/* Dashboard UI Elements */
+.glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  border-color: rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+}
+
+.metric-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.metric-value {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.alert-item {
+  border-left: 4px solid #334155;
+  background: rgba(30, 41, 59, 0.5);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  animation: slideIn 0.4s ease-out;
+}
+
+.alert-item.trap {
+  border-color: var(--threat-red);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.alert-item.spoof {
+  border-color: var(--threat-amber);
+  background: rgba(245, 158, 11, 0.05);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.threat-pulse {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  box-shadow: 0 0 0 rgba(16, 185, 129, 0.4);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
