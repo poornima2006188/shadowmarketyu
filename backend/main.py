@@ -4,7 +4,6 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
-from config import DB_NAME
 from shadow_engine import ShadowEngine
 from data_feed import DataFeed
 from websocket_manager import manager
@@ -58,12 +57,17 @@ app.add_middleware(
 def read_root():
     return {"message": "Shadow Market X Binance API is Live"}
 
+@app.get("/price")
+def get_price():
+    return {"price": engine.latest_price}
+
+@app.get("/alerts")
+def get_alerts():
+    return {"alerts": engine.latest_alerts}
+
 @app.get("/status")
 def get_status():
-    return {
-        "price": engine.latest_price,
-        "recent_alerts": engine.latest_alerts
-    }
+    return engine.get_status()
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
